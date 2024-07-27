@@ -6,18 +6,18 @@ We also host a trained version of the model on the [HuggingFace Spaces](https://
 ## 1. nAChRs and non-nAChRs classification model
 ## Training
 ```shell
-python gan.py
+python XX.py
 ```
 ## Inference
 ```shell
-python gan_generation.py
+python XX.py
 ```
 ## 2. nAChRs α7 regression model
 ## Training
 ```shell
-python AMP_Classification.py
+python XX.py
 ```
 ## Inference
 ```pshell
-python AMP_Classification_Prediction.py 
+python XX.py 
 ```
