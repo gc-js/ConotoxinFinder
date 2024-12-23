@@ -17,7 +17,7 @@ checkpoint = "facebook/esm2_t6_8M_UR50D"
 tokenizer = AutoTokenizer.from_pretrained(checkpoint)
 model = EsmForMaskedLM.from_pretrained(checkpoint).to(device)
 
-path = "./conoserver_data.csv"
+path = "./Data/conoserver_data.csv"
 df = pd.read_csv(path)
 sequences = df["Seq"].tolist()
 
