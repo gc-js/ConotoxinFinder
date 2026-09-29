@@ -14,6 +14,7 @@ import matplotlib.pyplot as plt
 device = torch.device("cuda")
 import random
 from sklearn.model_selection import KFold
+from scipy.stats import rankdata
 
 n_splits = 10
 kfold = KFold(n_splits=n_splits, shuffle=True, random_state=4)
@@ -38,12 +39,10 @@ for fold, (train_index, test_index) in enumerate(kfold.split(sequences)):
         random.seed(seed)
         torch.backends.cudnn.deterministic = True
     setup_seed(4)
+    
     def spearmanr(y_true, y_pred):
-        diff_pred, diff_true = y_pred - np.mean(y_pred), y_true - np.mean(y_true)
-        if np.sum(diff_pred **2) == 0 or np.sum(diff_true **2) == 0:
-            return 0
-        else:
-            return np.sum(diff_pred * diff_true) / np.sqrt(np.sum(diff_pred **2) * np.sum(diff_true **2))
+        rho, _ = _scipy_spearman(y_true, y_pred)
+        return 0 if np.isnan(rho) else rho
 
     class MyDataset(Dataset):
         def __init__(self,dict_data) -> None:
