@@ -19,7 +19,7 @@ from scipy.stats import rankdata
 n_splits = 10
 kfold = KFold(n_splits=n_splits, shuffle=True, random_state=4)
 all_fold_metrics = []
-path= "./Data/regression_train.csv"
+path= "./Data/regression_train_deduplication.csv"
 df = pd.read_csv(path)
 sequences = df["Sequence"].tolist()
 labels = df["Ln_value"].tolist()
