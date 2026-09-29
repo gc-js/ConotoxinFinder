@@ -160,8 +160,8 @@ for fold, (train_index, val_index) in enumerate(kfold.split(sequences)):
         metrics_out = confusion_matrix(valid_label, valid_epoch_acc)
         val_acc = accuracy_score(valid_label, valid_epoch_acc)
         val_pre = precision_score(valid_label, valid_epoch_acc)
-        val_sen = metrics_out[0][0] / (metrics_out[0][0] + metrics_out[0][1])
-        val_spe = metrics_out[1][1] / (metrics_out[1][0] + metrics_out[1][1])
+        val_spe = metrics_out[0][0] / (metrics_out[0][0] + metrics_out[0][1])
+        val_sen = metrics_out[1][1] / (metrics_out[1][0] + metrics_out[1][1])
         val_MCC = matthews_corrcoef(valid_label, valid_epoch_acc)
         valid_epochs_loss.append(np.average(valid_epoch_loss))
 
